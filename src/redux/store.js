@@ -1,6 +1,5 @@
-// filepath: /Users/shahadnazar/Desktop/react-wordpress-webshop/src/store.js
 import { configureStore } from '@reduxjs/toolkit';
-import productsReducer from '@productsSlice';
+import productsReducer from './features/productsSlice'; // Use the correct relative path
 
 const store = configureStore({
   reducer: {
