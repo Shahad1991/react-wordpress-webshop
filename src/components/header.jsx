@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useSelector } from 'react-redux'; // Correctly import useSelector
+import { selectCartTotalQuantity } from '../redux/features/cartSlice'; // Correctly import the selector
 
 function Header() {
+  const totalQuantity = useSelector(selectCartTotalQuantity); // Use the selector to get total quantity
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark p-3" style={{ backgroundColor: '#020100' }}>
       <div className="container">
@@ -45,7 +49,19 @@ function Header() {
             </li>
           </ul>
           <div className="d-flex align-items-center">
-            <FontAwesomeIcon icon={faShoppingCart} className="me-2" style={{ color: '#ca6009',fontSize: '1.5rem' }} />
+            <FontAwesomeIcon
+              icon={faShoppingCart}
+              className="me-2"
+              style={{ color: '#ca6009', fontSize: '1.5rem' }}
+            />
+            {totalQuantity > 0 && (
+              <span
+                className="badge rounded-pill ms-2"
+                style={{ fontSize: '0.9rem', background: '#ca6009'}}
+              >
+                {totalQuantity}
+              </span>
+            )}
           </div>
         </div>
       </div>

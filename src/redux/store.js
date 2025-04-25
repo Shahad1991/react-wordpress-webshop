@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import productsReducer from './features/productsSlice'; // Use the correct relative path
+import cartReducer from './features/cartSlice'; // Import cartSlice
 
 const store = configureStore({
   reducer: {
-    products: productsReducer,
+    cart: cartReducer, // Add cartSlice to the store
   },
 });
 
