@@ -12,7 +12,7 @@ function Shop() {
   const dispatch = useDispatch(); // Initialize useDispatch
 
   useEffect(() => {
-    fetch('http://localhost:8888/react-wordpress/wp-json/wp/v2/posts?_embed')
+    fetch(import.meta.env.VITE_API_URL)
       .then((res) => {
         if (!res.ok) throw new Error('Network error');
         return res.json();
