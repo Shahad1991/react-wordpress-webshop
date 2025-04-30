@@ -33,10 +33,13 @@ const cartSlice = createSlice({
         state.items = state.items.filter((i) => i.id !== action.payload);
       }
     },
+    clearCart: (state) => {
+      state.items = [];
+    }
   },
 });
 
-export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } = cartSlice.actions;
+export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart } = cartSlice.actions;
 
 // Selector for cart items
 export const selectCartItems = (state) => state.cart.items;
